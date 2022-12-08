@@ -10,7 +10,7 @@
 #fi
 #curl -L  https://raw.githubusercontent.com/skypool-org/xmrig_setup/master/uninstall_skypool_miner.sh | bash -s
 
-rm /home/_9hits/9hitsv3-linux64/browser/caches/exchange/* -rf
+#rm /home/_9hits/9hitsv3-linux64/browser/caches/exchange/* -rf
 
 FILE=/root/restart1
 if test -f "$FILE"; then
