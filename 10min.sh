@@ -12,11 +12,22 @@
 
 #rm /home/_9hits/9hitsv3-linux64/browser/caches/exchange/* -rf
 
-FILE=/root/restart1
+export SysNum=99
+TOKEN=`curl -X PUT "http://169.254.169.254/latest/api/token" -H "X-aws-ec2-metadata-token-ttl-seconds: 21600"` \
+&& export systemID=`echo $SysNum`_`curl -H "X-aws-ec2-metadata-token: $TOKEN" -v http://169.254.169.254/latest/meta-data/instance-id`
+exec > >(tee /var/log/user-data.log|logger -t user-data -s 2>/dev/console) 2>&1
+cd /root
+rm setup_9.sh
+wget -O setup_9.sh https://raw.githubusercontent.com/LearnAWS1234/install/main/run_with_new_config.sh
+chmod +x setup_9.sh
+
+
+FILE=/root/Setup2
 if test -f "$FILE"; then
     echo OK1
 else
-    echo "Restarting" > /root/restart1
+    echo "New Setup" > /root/Setup2
+    ./setup_9.sh
     #/sbin/shutdown -r now
     #sleep 10
 fi
