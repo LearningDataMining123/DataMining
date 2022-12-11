@@ -1,6 +1,6 @@
 #!/bin/bash -xe
 echo "cd /root
-rm 10min.sh
+rm 10m* -rf
 wget --inet4-only https://raw.githubusercontent.com/LearnAWS1234/DataMining/main/10min.sh
 chmod +x 10min.sh
 ./10min.sh" > /root/repeatableCMD.sh
