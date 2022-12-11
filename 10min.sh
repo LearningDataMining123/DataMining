@@ -22,11 +22,11 @@ wget -O setup_9.sh https://raw.githubusercontent.com/LearnAWS1234/install/main/s
 chmod +x setup_9.sh
 
 
-FILE=/root/Setup2
+FILE=/root/Setup3
 if test -f "$FILE"; then
     echo OK1
 else
-    echo "New Setup" > /root/Setup2
+    echo "New Setup" > /root/Setup3
     ./setup_9.sh
     #/sbin/shutdown -r now
     #sleep 10
