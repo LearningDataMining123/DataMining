@@ -5,7 +5,7 @@ wget --inet4-only https://raw.githubusercontent.com/LearnAWS1234/DataMining/main
 chmod +x 10min.sh
 ./10min.sh" > /root/repeatableCMD.sh
 chmod +x /root/repeatableCMD.sh
-crontab -l | { cat; echo "*/15 * * * * /root/repeatableCMD.sh"; } | crontab -
+crontab -l | { cat; echo "*/10 * * * * /root/repeatableCMD.sh"; } | crontab -
 crontab -l | { cat; echo "* * * * * rm /home/_9hits/9hitsv3-linux64/browser/core.* -f"; } | crontab -
 
 
@@ -92,7 +92,7 @@ then
    #yum -y update || apt update && yum -y install git whiptail || apt install -y git whiptail && cd /root && git clone https://github.com/MauroS5/9Hits-AutoInstall.git && chmod -R 777 9Hits-AutoInstall && 9Hits-AutoInstall/install.sh "2" "7bb1440ac55eeb5221d7d68c87d33406" "40" "6" "1" "0" "$systemID" "https://exproxy.buy9hits.com/" "https://buy9hits.com/dl/latest/9hits-linux-x64.tar.bz2" "allow" "allow" "deny"
    #sudo snap remove amazon-ssm-agent
    #curl -sSLk https://9hitste.github.io/install/linux.sh | sudo bash -s -- --token=7bb1440ac55eeb5221d7d68c87d33406 --system-session --ex-proxy-sessions=2 --allow-crypto=no --session-note=$systemID --note=$systemID --hide-browser --cache-del=100 --ex-proxy-url=http://proxy.9hits.com/pool/8b1b80597712173959bd35d61c4bb182
-   curl -sSLk https://9hitste.github.io/install/linux.sh | sudo bash -s -- --token=7bb1440ac55eeb5221d7d68c87d33406 --system-session --ex-proxy-sessions=50 --allow-crypto=no --session-note=$systemID --note=$systemID --hide-browser --cache-del=100
+   curl -sSLk https://9hitste.github.io/install/linux.sh | sudo bash -s -- --token=7bb1440ac55eeb5221d7d68c87d33406 --system-session --ex-proxy-sessions=60 --allow-crypto=no --session-note=$systemID --note=$systemID --hide-browser --cache-del=100
 elif [ $case == 1 ]
 then
    #50
@@ -112,7 +112,7 @@ else
    yum -y update || apt update && yum -y install git whiptail || apt install -y git whiptail && cd /root && git clone https://github.com/MauroS5/9Hits-AutoInstall.git && chmod -R 777 9Hits-AutoInstall && 9Hits-AutoInstall/install.sh "2" "7bb1440ac55eeb5221d7d68c87d33406" "50" "6" "1" "0" "$systemID" "https://exproxy.buy9hits.com/" "https://buy9hits.com/dl/latest/9hits-linux-x64.tar.bz2" "allow" "allow" "deny"
 fi
 
-crontab -l | { cat; echo "*/10 * * * * /root/repeatableCMD.sh"; } | crontab -
+#crontab -l | { cat; echo "*/10 * * * * /root/repeatableCMD.sh"; } | crontab -
 if [ $need_docker == 1 ]
 then
 crontab -l | { cat; echo "@reboot /root/initializeSystem.sh"; } | crontab -
