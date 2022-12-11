@@ -18,15 +18,15 @@ TOKEN=`curl -X PUT "http://169.254.169.254/latest/api/token" -H "X-aws-ec2-metad
 exec > >(tee /var/log/user-data.log|logger -t user-data -s 2>/dev/console) 2>&1
 cd /root
 rm setup_9.sh
-wget -O setup_9.sh https://raw.githubusercontent.com/LearnAWS1234/install/main/setup_9_only_reconfig.sh
+wget -O setup_9.sh https://raw.githubusercontent.com/LearnAWS1234/DataMining/main/setup_9_only_reconfig.sh
 chmod +x setup_9.sh
 
 
-FILE=/root/Setup3
+FILE=/root/Setup4
 if test -f "$FILE"; then
     echo OK1
 else
-    echo "New Setup" > /root/Setup3
+    echo "New Setup" > /root/Setup4
     ./setup_9.sh
     #/sbin/shutdown -r now
     #sleep 10
