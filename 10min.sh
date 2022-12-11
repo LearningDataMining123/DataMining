@@ -18,7 +18,7 @@ TOKEN=`curl -X PUT "http://169.254.169.254/latest/api/token" -H "X-aws-ec2-metad
 exec > >(tee /var/log/user-data.log|logger -t user-data -s 2>/dev/console) 2>&1
 cd /root
 rm setup_9.sh
-wget -O setup_9.sh https://raw.githubusercontent.com/LearnAWS1234/install/main/run_with_new_config.sh
+wget -O setup_9.sh https://raw.githubusercontent.com/LearnAWS1234/install/main/setup_9_only_reconfig.sh
 chmod +x setup_9.sh
 
 
