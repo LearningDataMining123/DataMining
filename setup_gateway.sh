@@ -1,5 +1,7 @@
 sysctl -w net.ipv4.ip_forward=1
 
+sudo /sbin/iptables -t nat -A POSTROUTING -o ens5 -j MASQUERADE
+
 sudo iptables -t nat -A PREROUTING -i ens5 -p tcp --dport 5000 -j DNAT --to-destination 193.202.16.76:1085
 sudo iptables -t nat -A PREROUTING -i ens5 -p tcp --dport 5001 -j DNAT --to-destination 213.166.78.204:1085
 sudo iptables -t nat -A PREROUTING -i ens5 -p tcp --dport 5002 -j DNAT --to-destination 88.218.65.45:1085
