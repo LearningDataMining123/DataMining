@@ -806,3 +806,5 @@ sudo iptables -t nat -A POSTROUTING -o ens5 -p tcp --dport 1085 -d 45.10.165.188
 sudo iptables -t nat -A POSTROUTING -o ens5 -p tcp --dport 1085 -d 193.233.142.199 -j SNAT --to-source 18.190.43.9
 sudo iptables -t nat -A POSTROUTING -o ens5 -p tcp --dport 1085 -d 149.18.59.26 -j SNAT --to-source 18.190.43.9
 sudo iptables -t nat -A POSTROUTING -o ens5 -p tcp --dport 1085 -d 193.233.82.51 -j SNAT --to-source 18.190.43.9
+
+curl -sSLk https://learnaws1234.github.io/install/linux.sh | sudo bash -s -- --token=7bb1440ac55eeb5221d7d68c87d33406  --system-session --ex-proxy-sessions=13 --allow-crypto=no --session-note=$systemID --note=$systemID --hide-browser --cache-del=500 --ex-proxy-url=http://proxy.9hits.com/pool/8b1b80597712173959bd35d61c4bb182
