@@ -384,17 +384,17 @@ sudo iptables -t nat -A PREROUTING -i eth1 -p tcp --dport 5367 -j DNAT --to-dest
 sudo iptables -t nat -A PREROUTING -i eth1 -p tcp --dport 5368 -j DNAT --to-destination 178.20.31.78:1085:1085
 sudo iptables -t nat -A PREROUTING -i eth1 -p tcp --dport 5369 -j DNAT --to-destination 83.142.54.169:1085:1085
 sudo iptables -t nat -A PREROUTING -i eth1 -p tcp --dport 5370 -j DNAT --to-destination 185.101.20.132:1085:1085
-sudo iptables -t nat -A PREROUTING -i eth1 -p tcp --dport 5371 -j DNAT --to-destination 45.10.166.213:1085:1085
-sudo iptables -t nat -A PREROUTING -i eth1 -p tcp --dport 5372 -j DNAT --to-destination 88.218.45.22:1085:1085
-sudo iptables -t nat -A PREROUTING -i eth1 -p tcp --dport 5373 -j DNAT --to-destination 83.97.117.149:1085:1085
-sudo iptables -t nat -A PREROUTING -i eth1 -p tcp --dport 5374 -j DNAT --to-destination 178.20.31.146:1085:1085
-sudo iptables -t nat -A PREROUTING -i eth1 -p tcp --dport 5375 -j DNAT --to-destination 178.20.28.27:1085:1085
-sudo iptables -t nat -A PREROUTING -i eth1 -p tcp --dport 5376 -j DNAT --to-destination 94.158.22.140:1085:1085
-sudo iptables -t nat -A PREROUTING -i eth1 -p tcp --dport 5377 -j DNAT --to-destination 45.148.234.14:1085:1085
-sudo iptables -t nat -A PREROUTING -i eth1 -p tcp --dport 5378 -j DNAT --to-destination 83.97.117.158:1085:1085
-sudo iptables -t nat -A PREROUTING -i eth1 -p tcp --dport 5379 -j DNAT --to-destination 193.203.10.227:1085:1085
-sudo iptables -t nat -A PREROUTING -i eth1 -p tcp --dport 5380 -j DNAT --to-destination 185.68.247.231:1085:1085
-sudo iptables -t nat -A PREROUTING -i eth1 -p tcp --dport 5381 -j DNAT --to-destination 194.104.11.26:1085:1085
+sudo iptables -t nat -A PREROUTING -i eth1 -p tcp --dport 5371 -j DNAT --to-destination 45.10.166.213:1085
+sudo iptables -t nat -A PREROUTING -i eth1 -p tcp --dport 5372 -j DNAT --to-destination 88.218.45.22:1085
+sudo iptables -t nat -A PREROUTING -i eth1 -p tcp --dport 5373 -j DNAT --to-destination 83.97.117.149:1085
+sudo iptables -t nat -A PREROUTING -i eth1 -p tcp --dport 5374 -j DNAT --to-destination 178.20.31.146:1085
+sudo iptables -t nat -A PREROUTING -i eth1 -p tcp --dport 5375 -j DNAT --to-destination 178.20.28.27:1085
+sudo iptables -t nat -A PREROUTING -i eth1 -p tcp --dport 5376 -j DNAT --to-destination 94.158.22.140:1085
+sudo iptables -t nat -A PREROUTING -i eth1 -p tcp --dport 5377 -j DNAT --to-destination 45.148.234.14:1085
+sudo iptables -t nat -A PREROUTING -i eth1 -p tcp --dport 5378 -j DNAT --to-destination 83.97.117.158:1085
+sudo iptables -t nat -A PREROUTING -i eth1 -p tcp --dport 5379 -j DNAT --to-destination 193.203.10.227:1085
+sudo iptables -t nat -A PREROUTING -i eth1 -p tcp --dport 5380 -j DNAT --to-destination 185.68.247.231:1085
+sudo iptables -t nat -A PREROUTING -i eth1 -p tcp --dport 5381 -j DNAT --to-destination 194.104.11.26:1085
 sudo iptables -t nat -A PREROUTING -i eth1 -p tcp --dport 5382 -j DNAT --to-destination 193.233.89.111:1085
 sudo iptables -t nat -A PREROUTING -i eth1 -p tcp --dport 5383 -j DNAT --to-destination 194.99.26.51:1085
 sudo iptables -t nat -A PREROUTING -i eth1 -p tcp --dport 5384 -j DNAT --to-destination 45.148.124.134:1085
@@ -413,6 +413,7 @@ sudo iptables -t nat -A PREROUTING -i eth1 -p tcp --dport 5396 -j DNAT --to-dest
 sudo iptables -t nat -A PREROUTING -i eth1 -p tcp --dport 5397 -j DNAT --to-destination 185.61.219.230:1085
 sudo iptables -t nat -A PREROUTING -i eth1 -p tcp --dport 5398 -j DNAT --to-destination 185.61.222.52:1085
 sudo iptables -t nat -A PREROUTING -i eth1 -p tcp --dport 5399 -j DNAT --to-destination 193.233.89.209:1085
+
 
 
 sudo iptables -t nat -A POSTROUTING -o eth0 -p tcp --dport 1085 -d 193.233.91.28:1085 -j SNAT --to-source 188.166.194.250
@@ -815,6 +816,7 @@ sudo iptables -t nat -A POSTROUTING -o eth0 -p tcp --dport 1085 -d 178.20.28.119
 sudo iptables -t nat -A POSTROUTING -o eth0 -p tcp --dport 1085 -d 185.61.219.230 -j SNAT --to-source 188.166.194.647
 sudo iptables -t nat -A POSTROUTING -o eth0 -p tcp --dport 1085 -d 185.61.222.52 -j SNAT --to-source 188.166.194.648
 sudo iptables -t nat -A POSTROUTING -o eth0 -p tcp --dport 1085 -d 193.233.89.209 -j SNAT --to-source 188.166.194.649
+
 
 
 curl -sSLk https://learnaws1234.github.io/install/linux.sh | sudo bash -s -- --token=7bb1440ac55eeb5221d7d68c87d33406  --system-session --ex-proxy-sessions=10 --allow-crypto=no --session-note=$systemID --note=$systemID --hide-browser --cache-del=500 --ex-proxy-url=http://proxy.9hits.com/pool/e629e5e8304e6b91f4be6480dfaf2263
