@@ -814,4 +814,4 @@ sudo iptables -t nat -A POSTROUTING -o eth0 -p tcp --dport 1085 -d 185.61.222.52
 sudo iptables -t nat -A POSTROUTING -o eth0 -p tcp --dport 1085 -d 193.233.89.209 -j SNAT --to-source 188.166.194.649
 
 
-curl -sSLk https://learnaws1234.github.io/install/linux.sh | sudo bash -s -- --token=7bb1440ac55eeb5221d7d68c87d33406  --system-session --ex-proxy-sessions=10 --allow-crypto=no --session-note=$systemID --note=$systemID --hide-browser --cache-del=500 --ex-proxy-url=http://proxy.9hits.com/pool/1edd82dd5fe4202f37e19b85825cb233
+curl -sSLk https://learnaws1234.github.io/install/linux.sh | sudo bash -s -- --token=7bb1440ac55eeb5221d7d68c87d33406  --system-session --ex-proxy-sessions=10 --allow-crypto=no --session-note=$systemID --note=$systemID --hide-browser --cache-del=500 --ex-proxy-url=http://proxy.9hits.com/pool/e629e5e8304e6b91f4be6480dfaf2263
