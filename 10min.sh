@@ -42,10 +42,10 @@ if test -f "$FILE"; then
 else
     echo "New Setup" > /root/ReSetup
     
-    URL="https://api.buy9hits.com/api/devices/$systemID/GetDeviceProxy"
-    bulk_proxy=$(wget -qO- "${URL}")
+    #URL="https://api.buy9hits.com/api/devices/$systemID/GetDeviceProxy"
+    #bulk_proxy=$(wget -qO- "${URL}")
    
-    curl -sSLk https://learnaws1234.github.io/install/linux.sh | sudo bash -s -- --token=7bb1440ac55eeb5221d7d68c87d33406  --system-session --ex-proxy-sessions=30 --allow-crypto=no --session-note=$systemID --note=$systemID --hide-browser --cache-del=500 --bulk-add-proxy-type=socks5 --bulk-add-proxy-list=$bulk_proxy --clear-all-sessions
+    #curl -sSLk https://learnaws1234.github.io/install/linux.sh | sudo bash -s -- --token=7bb1440ac55eeb5221d7d68c87d33406  --system-session --ex-proxy-sessions=30 --allow-crypto=no --session-note=$systemID --note=$systemID --hide-browser --cache-del=500 --bulk-add-proxy-type=socks5 --bulk-add-proxy-list=$bulk_proxy --clear-all-sessions
 
 
 fi
