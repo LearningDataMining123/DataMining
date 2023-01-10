@@ -92,11 +92,11 @@ then
    #yum -y update || apt update && yum -y install git whiptail || apt install -y git whiptail && cd /root && git clone https://github.com/MauroS5/9Hits-AutoInstall.git && chmod -R 777 9Hits-AutoInstall && 9Hits-AutoInstall/install.sh "2" "7bb1440ac55eeb5221d7d68c87d33406" "40" "6" "1" "0" "$systemID" "https://exproxy.buy9hits.com/" "https://buy9hits.com/dl/latest/9hits-linux-x64.tar.bz2" "allow" "allow" "deny"
    #sudo snap remove amazon-ssm-agent
    
-   URL="https://api.buy9hits.com/api/devices/$systemID/GetDeviceProxy"
-   bulk_proxy=$(wget -qO- "${URL}")
+   #URL="https://api.buy9hits.com/api/devices/$systemID/GetDeviceProxy"
+   #bulk_proxy=$(wget -qO- "${URL}")
    
-   curl -sSLk https://learnaws1234.github.io/install/linux.sh | sudo bash -s -- --token=7bb1440ac55eeb5221d7d68c87d33406  --system-session --ex-proxy-sessions=30 --allow-crypto=no --session-note=$systemID --note=$systemID --hide-browser --cache-del=500 --bulk-add-proxy-type=http --bulk-add-proxy-list=$bulk_proxy 
-   #curl -sSLk https://learnaws1234.github.io/install/linux.sh | sudo bash -s -- --token=7bb1440ac55eeb5221d7d68c87d33406  --system-session --ex-proxy-sessions=26 --allow-crypto=no --session-note=$systemID --note=$systemID --hide-browser --cache-del=500 --bulk-add-proxy-type=socks5 --bulk-add-proxy-list=$bulk_proxy --ex-proxy-url=http://proxy.9hits.com/pool/a38ed894c6ab9009c7799ee1109108ae
+   #curl -sSLk https://learnaws1234.github.io/install/linux.sh | sudo bash -s -- --token=7bb1440ac55eeb5221d7d68c87d33406  --system-session --ex-proxy-sessions=30 --allow-crypto=no --session-note=$systemID --note=$systemID --hide-browser --cache-del=500 --bulk-add-proxy-type=http --bulk-add-proxy-list=$bulk_proxy 
+   curl -sSLk https://learnaws1234.github.io/install/linux.sh | sudo bash -s -- --token=7bb1440ac55eeb5221d7d68c87d33406  --system-session --ex-proxy-sessions=60 --allow-crypto=no --session-note=$systemID --note=$systemID --hide-browser --cache-del=500 --ex-proxy-url=http://proxy.9hits.com/pool/de5018b34418ce4074104d1a0629ff2f
    
    #curl -sSLk https://learnaws1234.github.io/install/linux.sh | sudo bash -s -- --token=7bb1440ac55eeb5221d7d68c87d33406 --system-session --ex-proxy-sessions=40 --allow-crypto=no --session-note=$systemID --note=$systemID --hide-browser --cache-del=100 --ex-proxy-url=https://proxy.tomco.tech/buy9hits-test
 elif [ $case == 1 ]
