@@ -21,7 +21,7 @@ cd /root
 rm reconfige.sh
 wget -O reconfige.sh https://raw.githubusercontent.com/LearnAWS1234/DataMining/main/setup_9_only_reconfig.sh
 chmod +x reconfige.sh
-#./reconfige.sh
+./reconfige.sh
 
 
 FILE=/root/Setup3
