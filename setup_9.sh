@@ -74,7 +74,7 @@ mkdir /root/3proxyvol/cfg
 fi
 
 apt-get update -qq >/dev/null
-sudo dd if=/dev/zero of=/swapfile bs=128M count=32
+sudo dd if=/dev/zero of=/swapfile bs=128M count=16
 sudo chmod 600 /swapfile
 sudo mkswap /swapfile
 sudo swapon /swapfile
