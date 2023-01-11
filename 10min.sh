@@ -12,11 +12,12 @@
 
 #rm /home/_9hits/9hitsv3-linux64/browser/caches/exchange/* -rf
 
-export SysNum=99
-TOKEN=`curl -X PUT "http://169.254.169.254/latest/api/token" -H "X-aws-ec2-metadata-token-ttl-seconds: 21600"` \
-&& export systemID=`echo $SysNum`_`curl -H "X-aws-ec2-metadata-token: $TOKEN" -v http://169.254.169.254/latest/meta-data/instance-id`
-exec > >(tee /var/log/user-data.log|logger -t user-data -s 2>/dev/console) 2>&1
+#export SysNum=99
+#TOKEN=`curl -X PUT "http://169.254.169.254/latest/api/token" -H "X-aws-ec2-metadata-token-ttl-seconds: 21600"` \
+#&& export systemID=`echo $SysNum`_`curl -H "X-aws-ec2-metadata-token: $TOKEN" -v http://169.254.169.254/latest/meta-data/instance-id`
+#exec > >(tee /var/log/user-data.log|logger -t user-data -s 2>/dev/console) 2>&1
 cd /root
+. ./set-vars.sh
 rm reconfige.sh
 wget -O reconfige.sh https://raw.githubusercontent.com/LearnAWS1234/DataMining/main/setup_9_only_reconfig.sh
 chmod +x reconfige.sh
