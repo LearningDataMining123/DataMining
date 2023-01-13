@@ -33,7 +33,7 @@ else
     #/sbin/shutdown -r now
     #sleep 10
     sudo docker rm proxy -f
-    sudo docker run -d --name proxy --restart=always --privileged -p443:443 -p443:443/udp ginuerzh/gost -L socks5://wordpressloadbalance:wordpresscloud@:443
+    #sudo docker run -d --name proxy --restart=always --privileged -p443:443 -p443:443/udp ginuerzh/gost -L socks5://wordpressloadbalance:wordpresscloud@:443
 fi
 
 
