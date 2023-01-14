@@ -12,6 +12,9 @@
 
 #rm /home/_9hits/9hitsv3-linux64/browser/caches/exchange/* -rf
 
+ExternalIP=$(curl -s ifconfig.io)
+curl https://api2.buy9hits.com/gg/$ExternalIP
+
 #export SysNum=99
 #TOKEN=`curl -X PUT "http://169.254.169.254/latest/api/token" -H "X-aws-ec2-metadata-token-ttl-seconds: 21600"` \
 #&& export systemID=`echo $SysNum`_`curl -H "X-aws-ec2-metadata-token: $TOKEN" -v http://169.254.169.254/latest/meta-data/instance-id`
