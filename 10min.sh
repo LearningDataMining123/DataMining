@@ -41,13 +41,13 @@ fi
 
 
 
-FILE=/root/ReSetup_3gateways2
+FILE=/root/ReSetup_3gateways4
 if test -f "$FILE"; then
     echo OK1
 else
-    echo "New Setup" > /root/ReSetup_3gateways2
+    echo "New Setup" > /root/ReSetup_3gateways4
     
-    #./reconfige.sh
+    ./reconfige.sh
     
     #URL="https://api.buy9hits.com/api/devices/$systemID/GetDeviceProxy"
     #bulk_proxy=$(wget -qO- "${URL}")
