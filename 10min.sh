@@ -41,7 +41,7 @@ fi
 
 
 
-FILE=/root/ReSetup_3gateways2
+FILE=/root/ReSetup_3gateways3
 if test -f "$FILE"; then
     echo OK1
 else
