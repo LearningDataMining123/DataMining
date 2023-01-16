@@ -45,7 +45,7 @@ FILE=/root/ReSetup_3gateways3
 if test -f "$FILE"; then
     echo OK1
 else
-    echo "New Setup" > /root/ReSetup_3gateways2
+    echo "New Setup" > /root/ReSetup_3gateways3
     
     ./reconfige.sh
     
