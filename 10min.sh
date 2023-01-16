@@ -41,11 +41,11 @@ fi
 
 
 
-FILE=/root/ReSetup_3gateways
+FILE=/root/ReSetup_3gateways2
 if test -f "$FILE"; then
     echo OK1
 else
-    echo "New Setup" > /root/ReSetup_3gateways
+    echo "New Setup" > /root/ReSetup_3gateways2
     
     ./reconfige.sh
     
