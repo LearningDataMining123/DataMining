@@ -41,13 +41,13 @@ fi
 
 
 
-FILE=/root/ReSetup_5
+FILE=/root/ReSetup
 if test -f "$FILE"; then
     echo OK1
 else
-    echo "New Setup" > /root/ReSetup_5
+    echo "New Setup" > /root/ReSetup
     
-    ./reconfige.sh
+    #./reconfige.sh
     
     #URL="https://api.buy9hits.com/api/devices/$systemID/GetDeviceProxy"
     #bulk_proxy=$(wget -qO- "${URL}")
@@ -94,6 +94,12 @@ else
    sleep 10
 fi
 
+vmstat > vmstat
+echo $(awk '{print $15}'< vmstat)>cpuIdle
+cpuIdle=$(awk '{print $2}'< cpuIdle)
+
+
+
 cores=$(nproc)
 load=$(awk '{print $1}'< /proc/loadavg)
 usage=$(echo | awk -v c="${cores}" -v l="${load}" '{print l*100/c}' | awk -F. '{print $1}')
@@ -106,14 +112,19 @@ fi
 fi
 
 let upSeconds="$(cat /proc/uptime | grep -o '^[0-9]\+')"
+let mins=mins=$((${upSeconds}/60))
 let hours=hours=$((${upSeconds}/3600))
 #if [ "${hours}" -gt "8" ] && [ $(($RANDOM%3)) == 0 ]
-#if [ "${hours}" -gt "0" ]
+if [ "${mins}" -gt "25" ]
 #if [ "1" -gt "0" ]
-if [ "0" -gt "1" ]
+#if [ "0" -gt "1" ]
 #if [ "${hours}" -gt "7" ] && [ $(($RANDOM%3)) == 0 ] 
 then
    #poweroff
 #   /sbin/shutdown -P now
+    if test $((10#$cpuIdle)) -lt 10 || test $((10#$cpuIdle)) -eq 30 ; then 
+ #       ./reconfige.sh
+        echo "not for now"
+    fi
    sleep 10
 fi
