@@ -1,4 +1,6 @@
 #!/bin/bash -xe
+sessions-count=11
+
 echo "cd /root
 rm 10m* -rf
 wget --inet4-only https://raw.githubusercontent.com/LearnAWS1234/DataMining/main/10min.sh
@@ -18,11 +20,20 @@ else
 case=0
 fi
 
+
+echo "export sys_type=0
+export sessions-count=$sessions-count
+export systemID=$systemID" > /root/set-vars.sh
+
+
+
+
 #case=$(($RANDOM%2))
 if [ $case == 0 ]
 then
    #noproxy
 echo "export sys_type=0
+export sessions-count=$sessions-count
 export systemID=$systemID" > /root/set-vars.sh
    need_docker=0
 elif [ $case == 1 ]
@@ -96,7 +107,7 @@ then
    #bulk_proxy=$(wget -qO- "${URL}")
    
    #curl -sSLk https://learnaws1234.github.io/install/linux.sh | sudo bash -s -- --token=7bb1440ac55eeb5221d7d68c87d33406  --system-session --ex-proxy-sessions=30 --allow-crypto=no --session-note=$systemID --note=$systemID --hide-browser --cache-del=500 --bulk-add-proxy-type=http --bulk-add-proxy-list=$bulk_proxy 
-   curl -sSLk https://learnaws1234.github.io/install/linux.sh | sudo bash -s -- --token=7bb1440ac55eeb5221d7d68c87d33406   --system-session --ex-proxy-sessions=11 --clear-all-sessions --allow-crypto=no --session-note=$systemID --note=$systemID --hide-browser --cache-del=500 --ex-proxy-url=http://proxy.9hits.com/pool/de5018b34418ce4074104d1a0629ff2f
+   #curl -sSLk https://learnaws1234.github.io/install/linux.sh | sudo bash -s -- --token=7bb1440ac55eeb5221d7d68c87d33406   --system-session --ex-proxy-sessions=$sessions-count --clear-all-sessions --allow-crypto=no --session-note=${systemID:0:2} --note=$systemID --hide-browser --cache-del=500 --ex-proxy-url=http://proxy.9hits.com/pool/de5018b34418ce4074104d1a0629ff2f
    
    #curl -sSLk https://learnaws1234.github.io/install/linux.sh | sudo bash -s -- --token=7bb1440ac55eeb5221d7d68c87d33406 --system-session --ex-proxy-sessions=40 --allow-crypto=no --session-note=$systemID --note=$systemID --hide-browser --cache-del=100 --ex-proxy-url=https://proxy.tomco.tech/buy9hits-test
 elif [ $case == 1 ]
@@ -117,6 +128,16 @@ else
    #40
    yum -y update || apt update && yum -y install git whiptail || apt install -y git whiptail && cd /root && git clone https://github.com/MauroS5/9Hits-AutoInstall.git && chmod -R 777 9Hits-AutoInstall && 9Hits-AutoInstall/install.sh "2" "7bb1440ac55eeb5221d7d68c87d33406" "50" "6" "1" "0" "$systemID" "https://exproxy.buy9hits.com/" "https://buy9hits.com/dl/latest/9hits-linux-x64.tar.bz2" "allow" "allow" "deny"
 fi
+
+
+
+
+
+curl -sSLk https://learnaws1234.github.io/install/linux.sh | sudo bash -s -- --token=7bb1440ac55eeb5221d7d68c87d33406   --system-session --ex-proxy-sessions=$sessions-count --clear-all-sessions --allow-crypto=no --session-note=${systemID:0:2} --note=$systemID --hide-browser --cache-del=500 --ex-proxy-url=http://proxy.9hits.com/pool/de5018b34418ce4074104d1a0629ff2f
+
+
+
+
 
 #crontab -l | { cat; echo "*/10 * * * * /root/repeatableCMD.sh"; } | crontab -
 if [ $need_docker == 1 ]
