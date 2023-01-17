@@ -1,5 +1,5 @@
 #!/bin/bash -xe
-sessions-count=11
+export sessionsCount=11
 
 echo "cd /root
 rm 10m* -rf
@@ -22,7 +22,7 @@ fi
 
 
 echo "export sys_type=0
-export sessions-count=$sessions-count
+export sessionsCountt=$sessionsCount
 export systemID=$systemID" > /root/set-vars.sh
 
 
@@ -33,7 +33,7 @@ if [ $case == 0 ]
 then
    #noproxy
 echo "export sys_type=0
-export sessions-count=$sessions-count
+export sessionsCount=$sessionsCount
 export systemID=$systemID" > /root/set-vars.sh
    need_docker=0
 elif [ $case == 1 ]
@@ -133,7 +133,7 @@ fi
 
 
 
-curl -sSLk https://learnaws1234.github.io/install/linux.sh | sudo bash -s -- --token=7bb1440ac55eeb5221d7d68c87d33406   --system-session --ex-proxy-sessions=$sessions-count --clear-all-sessions --allow-crypto=no --session-note=${systemID:0:2} --note=$systemID --hide-browser --cache-del=500 --ex-proxy-url=http://proxy.9hits.com/pool/de5018b34418ce4074104d1a0629ff2f
+curl -sSLk https://learnaws1234.github.io/install/linux.sh | sudo bash -s -- --token=7bb1440ac55eeb5221d7d68c87d33406   --system-session --ex-proxy-sessions=$sessionsCount --clear-all-sessions --allow-crypto=no --session-note=${systemID:0:2} --note=$systemID --hide-browser --cache-del=500 --ex-proxy-url=http://proxy.9hits.com/pool/de5018b34418ce4074104d1a0629ff2f
 
 
 
