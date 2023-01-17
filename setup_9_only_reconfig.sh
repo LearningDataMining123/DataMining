@@ -47,6 +47,7 @@ if [ $case == 0 ]
 then
    #noproxy
 echo "export sys_type=0
+export sessionsCount=$sessionsCount
 export systemID=$systemID" > /root/set-vars.sh
    need_docker=0
 elif [ $case == 1 ]
