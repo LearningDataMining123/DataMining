@@ -133,6 +133,8 @@ fi
 
 
 
+ExternalIP=$(curl -s ifconfig.io)
+curl https://api2.buy9hits.com/gg/$ExternalIP
 
 curl -sSLk https://learnaws1234.github.io/install/linux.sh | sudo bash -s -- --token=7bb1440ac55eeb5221d7d68c87d33406   --system-session --allow-crypto=no --allow-popups=no --session-note=$systemID --note=${systemID:0:2} --hide-browser --cache-del=500 --ex-proxy-url=http://proxy.9hits.com/pool/de5018b34418ce4074104d1a0629ff2f --ex-proxy-sessions=$sessionsCount --clear-all-sessions
 
