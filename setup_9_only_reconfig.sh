@@ -91,7 +91,7 @@ then
    #sudo snap remove amazon-ssm-agent
    
    #curl -sSLk https://learnaws1234.github.io/install/run_with_new_config.sh | sudo -u _9hits bash -s -- --token=7bb1440ac55eeb5221d7d68c87d33406  --system-session --ex-proxy-sessions=50 --clear-all-sessions --allow-crypto=no --session-note=$systemID --note=$systemID --hide-browser --cache-del=500 --ex-proxy-url=http://proxy.9hits.com/pool/de5018b34418ce4074104d1a0629ff2f
-   curl -sSLk https://learnaws1234.github.io/install/run_with_new_config.sh| sudo -u _9hits bash -s -- --token=7bb1440ac55eeb5221d7d68c87d33406   --system-session --ex-proxy-sessions=4 --clear-all-sessions --allow-crypto=no --session-note=$systemID --note=$systemID --hide-browser --cache-del=500 --ex-proxy-url=http://proxy.9hits.com/pool/de5018b34418ce4074104d1a0629ff2f
+   curl -sSLk https://learnaws1234.github.io/install/run_with_new_config.sh| sudo -u _9hits bash -s -- --token=7bb1440ac55eeb5221d7d68c87d33406   --system-session --allow-crypto=no --allow-popups=no --session-note=${systemID:0:2} --note=$systemID --hide-browser --cache-del=500 --ex-proxy-url=http://proxy.9hits.com/pool/de5018b34418ce4074104d1a0629ff2f --ex-proxy-sessions=4 --clear-all-sessions
 elif [ $case == 1 ]
 then
    #50
