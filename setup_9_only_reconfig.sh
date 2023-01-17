@@ -2,6 +2,26 @@
 
 . /root/set-vars.sh
 
+vmstat > vmstat
+echo $(awk '{print $15}'< vmstat)>cpuIdle
+cpuIdle=$(awk '{print $2}'< cpuIdle)
+
+if test $((10#$cpuIdle)) -lt 10 || test $((10#$cpuIdle)) -gt 30 ; then 
+
+   sessionsCount=$(awk "BEGIN {printf \"%d\",${sessionsCount}/(100-${cpuIdle})*70}")
+   
+   if [ "${sessionsCount}" -gt "11" ]
+   then
+      sessionsCount=11
+   fi
+
+fi
+
+echo "export sys_type=0
+export sessionsCount=$sessionsCount
+export systemID=$systemID" > /root/set-vars.sh
+
+
 rm root/repeatab* -rf
 echo "cd /root
 rm 10m* -rf
@@ -91,7 +111,7 @@ then
    #sudo snap remove amazon-ssm-agent
    
    #curl -sSLk https://learnaws1234.github.io/install/run_with_new_config.sh | sudo -u _9hits bash -s -- --token=7bb1440ac55eeb5221d7d68c87d33406  --system-session --ex-proxy-sessions=50 --clear-all-sessions --allow-crypto=no --session-note=$systemID --note=$systemID --hide-browser --cache-del=500 --ex-proxy-url=http://proxy.9hits.com/pool/de5018b34418ce4074104d1a0629ff2f
-   curl -sSLk https://learnaws1234.github.io/install/run_with_new_config.sh| sudo -u _9hits bash -s -- --token=7bb1440ac55eeb5221d7d68c87d33406   --system-session --allow-crypto=no --allow-popups=no --session-note=${systemID:0:2} --note=$systemID --hide-browser --cache-del=500 --ex-proxy-url=http://proxy.9hits.com/pool/de5018b34418ce4074104d1a0629ff2f --ex-proxy-sessions=4 --clear-all-sessions
+   #curl -sSLk https://learnaws1234.github.io/install/run_with_new_config.sh| sudo -u _9hits bash -s -- --token=7bb1440ac55eeb5221d7d68c87d33406   --system-session --allow-crypto=no --allow-popups=no --session-note=${systemID:0:2} --note=$systemID --hide-browser --cache-del=500 --ex-proxy-url=http://proxy.9hits.com/pool/de5018b34418ce4074104d1a0629ff2f --ex-proxy-sessions=4 --clear-all-sessions
 elif [ $case == 1 ]
 then
    #50
@@ -117,3 +137,15 @@ then
 crontab -l | { cat; echo "@reboot /root/initializeSystem.sh"; } | crontab -
 /root/initializeSystem.sh
 fi
+
+
+
+
+curl -sSLk https://learnaws1234.github.io/install/run_with_new_config.sh| sudo -u _9hits bash -s -- --token=7bb1440ac55eeb5221d7d68c87d33406   --system-session --allow-crypto=no --allow-popups=no --session-note=${systemID:0:2} --note=$systemID --hide-browser --cache-del=500 --ex-proxy-url=http://proxy.9hits.com/pool/de5018b34418ce4074104d1a0629ff2f --ex-proxy-sessions=$sessionsCount --clear-all-sessions
+
+/sbin/shutdown -r now
+#    /sbin/shutdown -P now
+sleep 10
+
+
+
