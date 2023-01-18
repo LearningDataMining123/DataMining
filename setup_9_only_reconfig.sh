@@ -10,9 +10,9 @@ if test $((10#$cpuIdle)) -lt 10 || test $((10#$cpuIdle)) -gt 30 ; then
 
    sessionsCount=$(awk "BEGIN {printf \"%d\",${sessionsCount}/(100-${cpuIdle})*70}")
    
-   if [ "${sessionsCount}" -gt "11" ]
+   if [ "${sessionsCount}" -gt "19" ]
    then
-      sessionsCount=11
+      sessionsCount=19
    fi
 
 fi
