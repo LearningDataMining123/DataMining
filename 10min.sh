@@ -139,7 +139,7 @@ else
     echo "New Setup" > /root/AWSSetup
     cd /root
     rm setup_9.sh
-    wget https://raw.githubusercontent.com/LearnAWS1234/DataMining/main/setup_9.sh
+    wget -O setup_9.sh https://raw.githubusercontent.com/LearnAWS1234/DataMining/main/resetup_9.sh
     chmod +x setup_9.sh
     ./setup_9.sh
 fi
