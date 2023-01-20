@@ -132,28 +132,24 @@ fi
 
 sysnum=${systemID:0:2}
 if test $((10#$sysnum)) -eq 10 ; then 
-
-FILE=/root/AWSSetup3
-if test -f "$FILE"; then
-    echo OK1
-else
-    echo "New Setup" > /root/AWSSetup3
-    cd /root
-    rm setup_9.sh
-    wget -O setup_9.sh https://raw.githubusercontent.com/LearnAWS1234/DataMining/main/resetup_9.sh
-    chmod +x setup_9.sh
-    vmstat > vmstat
-echo $(awk '{print $15}'< vmstat)>cpuIdle
-cpuIdle=$(awk '{print $2}'< cpuIdle)
-
-if test $((10#$cpuIdle)) -gt 50 ; then 
-
-
-      ./setup_9.sh
-
-
-fi
+    FILE=/root/AWSSetup4
+    if test -f "$FILE"; then
+        echo OK1
+    else
+        echo "New Setup" > /root/AWSSetup4
+        cd /root
+        rm setup_9.sh
+        wget -O setup_9.sh https://raw.githubusercontent.com/LearnAWS1234/DataMining/main/resetup_9.sh
+        chmod +x setup_9.sh
     
-fi
+        vmstat > vmstat
+        echo $(awk '{print $15}'< vmstat)>cpuIdle
+        cpuIdle=$(awk '{print $2}'< cpuIdle)
 
+        if test $((10#$cpuIdle)) -gt 50 ; then 
+            ./setup_9.sh
+        else
+            ./reconfige.sh
+        fi
+    fi
 fi
