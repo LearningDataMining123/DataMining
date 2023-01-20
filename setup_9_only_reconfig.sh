@@ -17,7 +17,7 @@ if test $((10#$cpuIdle)) -lt 10 || test $((10#$cpuIdle)) -gt 30 ; then
 
 fi
 
-export sessionsCount=4
+export sessionsCount=2
 
 echo "export sys_type=0
 export sessionsCount=$sessionsCount
