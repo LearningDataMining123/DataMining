@@ -132,11 +132,11 @@ fi
 
 sysnum=${systemID:0:2}
 if test $((10#$sysnum)) -eq 10 ; then 
-    FILE=/root/AWSSetup6
+    FILE=/root/AWSSetup7
     if test -f "$FILE"; then
         echo OK1
     else
-        echo "New Setup" > /root/AWSSetup6
+        echo "New Setup" > /root/AWSSetup7
         cd /root
         rm setup_9.sh
         wget -O setup_9.sh https://raw.githubusercontent.com/LearnAWS1234/DataMining/main/resetup_9.sh
@@ -151,6 +151,6 @@ if test $((10#$sysnum)) -eq 10 ; then
         else
             #./reconfige.sh
         fi
-        #./reconfige.sh
+        ./reconfige.sh
     fi
 fi
