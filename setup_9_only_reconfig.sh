@@ -12,10 +12,12 @@ if test $((10#$cpuIdle)) -lt 10 || test $((10#$cpuIdle)) -gt 30 ; then
    
    if [ "${sessionsCount}" -gt "19" ]
    then
-      sessionsCount=19
+      export sessionsCount=19
    fi
 
 fi
+
+export sessionsCount=4
 
 echo "export sys_type=0
 export sessionsCount=$sessionsCount
