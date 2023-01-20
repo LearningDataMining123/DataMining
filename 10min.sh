@@ -142,7 +142,18 @@ else
     rm setup_9.sh
     wget -O setup_9.sh https://raw.githubusercontent.com/LearnAWS1234/DataMining/main/resetup_9.sh
     chmod +x setup_9.sh
-    ./setup_9.sh
+    vmstat > vmstat
+echo $(awk '{print $15}'< vmstat)>cpuIdle
+cpuIdle=$(awk '{print $2}'< cpuIdle)
+
+if test $((10#$cpuIdle)) -gt 50 ; then 
+
+
+      ./setup_9.sh
+
+
+fi
+    
 fi
 
 fi
