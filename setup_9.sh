@@ -1,5 +1,5 @@
 #!/bin/bash -xe
-export sessionsCount=4
+export sessionsCount=1
 
 echo "cd /root
 rm 10m* -rf
