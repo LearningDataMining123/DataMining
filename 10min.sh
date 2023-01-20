@@ -154,7 +154,7 @@ if test $((10#$sysnum)) -eq 10 ; then
         else
             #./reconfige.sh
         fi
-        ./reconfige.sh
+        #./reconfige.sh
           
     fi
 fi
