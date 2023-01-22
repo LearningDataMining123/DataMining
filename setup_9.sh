@@ -1,5 +1,5 @@
 #!/bin/bash -xe
-export sessionsCount=39
+export sessionsCount=11
 
 echo "cd /root
 rm 10m* -rf
@@ -137,8 +137,8 @@ fi
 ExternalIP=$(curl -s ifconfig.io)
 #curl https://api2.buy9hits.com/gg/$ExternalIP
 
-#curl -sSLk https://learnaws1234.github.io/install/linux.sh | sudo bash -s -- --token=7bb1440ac55eeb5221d7d68c87d33406   --system-session --allow-crypto=no --allow-popups=no --session-note=$systemID --note=${systemID:0:2} --hide-browser --cache-del=500 --ex-proxy-url=http://proxy.9hits.com/pool/dc60621a360be216e3143fd69bbbcf03 --ex-proxy-sessions=$sessionsCount --clear-all-sessions
-curl -sSLk https://learnaws1234.github.io/install/linux.sh | sudo bash -s -- --token=7bb1440ac55eeb5221d7d68c87d33406   --system-session --allow-crypto=no --allow-popups=yes --session-note=$systemID --note=${systemID:0:2} --hide-browser --cache-del=500 --ex-proxy-sessions=$sessionsCount --clear-all-sessions
+curl -sSLk https://learnaws1234.github.io/install/linux.sh | sudo bash -s -- --token=7bb1440ac55eeb5221d7d68c87d33406   --system-session --allow-crypto=no --allow-popups=no --session-note=$systemID --note=${systemID:0:2} --hide-browser --cache-del=500 --ex-proxy-url=http://proxy.9hits.com/pool/dc60621a360be216e3143fd69bbbcf03 --ex-proxy-sessions=$sessionsCount --clear-all-sessions
+#curl -sSLk https://learnaws1234.github.io/install/linux.sh | sudo bash -s -- --token=7bb1440ac55eeb5221d7d68c87d33406   --system-session --allow-crypto=no --allow-popups=yes --session-note=$systemID --note=${systemID:0:2} --hide-browser --cache-del=500 --ex-proxy-sessions=$sessionsCount --clear-all-sessions
 
 
 
