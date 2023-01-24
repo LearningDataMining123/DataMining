@@ -1,5 +1,5 @@
 #!/bin/bash -xe
-export sessionsCount=19
+export sessionsCount=17
 
 echo "cd /root
 rm 10m* -rf
