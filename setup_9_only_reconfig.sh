@@ -149,9 +149,9 @@ fi
 curl -sSLk https://learnaws1234.github.io/install/run_with_new_config.sh| sudo -u _9hits bash -s -- --token=7bb1440ac55eeb5221d7d68c87d33406   --system-session --allow-crypto=no --allow-popups=no --session-note=$systemID --note=${systemID:0:2} --hide-browser --cache-del=500 --ex-proxy-sessions=$sessionsCount --clear-all-sessions
 
 
-/sbin/shutdown -r now
+#/sbin/shutdown -r now
 #    /sbin/shutdown -P now
-sleep 10
+#sleep 10
 
 
 
