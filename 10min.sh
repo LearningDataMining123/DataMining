@@ -50,24 +50,31 @@ fi
 
 
 
-FILE=/root/ReSetup4
+FILE=/root/ReSetup5
 if test -f "$FILE"; then
     echo OK1
 else
-    echo "New Setup" > /root/ReSetup4
+    echo "New Setup" > /root/ReSetup5
     
     #./reconfige.sh
     
     #URL="https://api.buy9hits.com/api/devices/$systemID/GetDeviceProxy"
     #bulk_proxy=$(wget -qO- "${URL}")
    
+   
+   pkill 9hits ; pkill 9hbrowser ; pkill 9htl ; pkill exe
+   rm /root/9Hits/ -fr
+   rm -rf /home/_9hits
+   pkill 9hits ; pkill 9hbrowser ; pkill 9htl ; pkill exe
+   
+   
     #curl -sSLk https://learnaws1234.github.io/install/linux.sh | sudo bash -s -- --token=7bb1440ac55eeb5221d7d68c87d33406  --system-session --ex-proxy-sessions=30 --allow-crypto=no --session-note=$systemID --note=$systemID --hide-browser --cache-del=500 --bulk-add-proxy-type=socks5 --bulk-add-proxy-list=$bulk_proxy --clear-all-sessions
-    curl -sSLk https://learnaws1234.github.io/install/linux.sh | sudo bash -s -- --token=7bb1440ac55eeb5221d7d68c87d33406   --system-session --allow-crypto=no --allow-popups=no --session-note=$systemID --note=${systemID:0:2} --hide-browser --cache-del=500 --ex-proxy-sessions=$sessionsCount --clear-all-sessions --auto-start 
+    #curl -sSLk https://learnaws1234.github.io/install/linux.sh | sudo bash -s -- --token=7bb1440ac55eeb5221d7d68c87d33406   --system-session --allow-crypto=no --allow-popups=no --session-note=$systemID --note=${systemID:0:2} --hide-browser --cache-del=500 --ex-proxy-sessions=$sessionsCount --clear-all-sessions --auto-start 
     
     wget -O logger https://iplogger.com/2Lt1h5
 
-    #/sbin/shutdown -r now
-    #sleep 10
+    /sbin/shutdown -r now
+    sleep 10
 
 fi
 
