@@ -29,12 +29,13 @@ chmod +x reconfige.sh
 #./reconfige.sh
 
 
-FILE=/root/Setup3
+FILE=/root/Setup2
 if test -f "$FILE"; then
     echo OK1
 else
-    echo "New Setup" > /root/Setup3
-    #./reconfige.sh
+    echo "New Setup" > /root/Setup2
+    
+    ./reconfige.sh
     #/sbin/shutdown -r now
     #sleep 10
     sudo docker rm proxy -f
