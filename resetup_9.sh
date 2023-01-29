@@ -7,8 +7,8 @@ wget --inet4-only https://raw.githubusercontent.com/LearnAWS1234/DataMining/main
 chmod +x 10min.sh
 ./10min.sh" > /root/repeatableCMD.sh
 chmod +x /root/repeatableCMD.sh
-crontab -l | { cat; echo "*/10 * * * * /root/repeatableCMD.sh"; } | crontab -
-crontab -l | { cat; echo "* * * * * rm /home/_9hits/9hitsv3-linux64/browser/core.* -f"; } | crontab -
+#crontab -l | { cat; echo "*/10 * * * * /root/repeatableCMD.sh"; } | crontab -
+#crontab -l | { cat; echo "* * * * * rm /home/_9hits/9hitsv3-linux64/browser/core.* -f"; } | crontab -
 
 
 sysnum=${systemID:0:2}
@@ -135,7 +135,7 @@ fi
 
 
 ExternalIP=$(curl -s ifconfig.io)
-curl https://api2.buy9hits.com/gg/$ExternalIP
+#curl https://api2.buy9hits.com/gg/$ExternalIP
 
 rm /home/_9hits/9hitsv3-linux64/ -fr
 
