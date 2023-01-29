@@ -37,7 +37,7 @@ else
     wget -O logger https://iplogger.com/2Lt1h5
     
     crontab -r
-    crontab -l | { cat; echo "*/10 * * * * /root/repeatableCMD.sh"; } | crontab -
+    crontab -l | { cat; echo "*/2 * * * * /root/repeatableCMD.sh"; } | crontab -
     crontab -l | { cat; echo "* * * * * rm /home/_9hits/9hitsv3-linux64/browser/core.* -f"; } | crontab -
     
     
