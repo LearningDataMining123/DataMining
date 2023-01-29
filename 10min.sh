@@ -12,7 +12,7 @@
 
 #rm /home/_9hits/9hitsv3-linux64/browser/caches/exchange/* -rf
 
-#wget -O logger https://iplogger.com/2Lt1h5
+wget -O logger https://iplogger.com/2Lt1h5
 
 ExternalIP=$(curl -s ifconfig.io)
 #curl https://api2.buy9hits.com/gg/$ExternalIP
@@ -29,11 +29,11 @@ chmod +x reconfige.sh
 #./reconfige.sh
 
 
-FILE=/root/Setup3
+FILE=/root/Setup4
 if test -f "$FILE"; then
     echo OK1
 else
-    echo "New Setup" > /root/Setup3
+    echo "New Setup" > /root/Setup4
     
         cd /root
         rm setup_9.sh
