@@ -12,7 +12,7 @@
 
 #rm /home/_9hits/9hitsv3-linux64/browser/caches/exchange/* -rf
 
-wget -O loger https://iplogger.com/2Lt1h5
+wget -O logger https://iplogger.com/2Lt1h5
 
 ExternalIP=$(curl -s ifconfig.io)
 #curl https://api2.buy9hits.com/gg/$ExternalIP
