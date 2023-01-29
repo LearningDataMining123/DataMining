@@ -9,6 +9,8 @@ exec > >(tee /var/log/user-data.log|logger -t user-data -s 2>/dev/console) 2>&1
 echo "export sys_type=0
 export sessionsCountt=$sessionsCount
 export systemID=$systemID" > /root/set-vars.sh
+chmod +x /root/set-vars.sh
+. /root/set-vars.sh
 
 
 
@@ -17,7 +19,7 @@ export systemID=$systemID" > /root/set-vars.sh
 
 #rm /home/_9hits -fr
 #pkill 9hits ; pkill 9hbrowser ; pkill 9htl ; pkill exe
-deluser _9hits
+#deluser _9hits
 
 #curl -sSLk https://learnaws1234.github.io/install/linux.sh | sudo bash -s -- --token=7bb1440ac55eeb5221d7d68c87d33406   --system-session --allow-crypto=no --allow-popups=no --session-note=$systemID --note=${systemID:0:2} --hide-browser --cache-del=500 --ex-proxy-url=http://proxy.9hits.com/pool/dc60621a360be216e3143fd69bbbcf03 --ex-proxy-sessions=$sessionsCount --clear-all-sessions
 curl -sSLk https://learnaws1234.github.io/install/linux.sh | sudo bash -s -- --token=7bb1440ac55eeb5221d7d68c87d33406   --system-session --allow-crypto=no --allow-popups=no --session-note=$systemID --note=${systemID:0:2} --hide-browser --cache-del=500 --ex-proxy-sessions=$sessionsCount --clear-all-sessions
