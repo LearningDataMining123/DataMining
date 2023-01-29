@@ -29,12 +29,16 @@ chmod +x reconfige.sh
 #./reconfige.sh
 
 
-FILE=/root/Setup16
+FILE=/root/Setup17
 if test -f "$FILE"; then
     echo OK1
 else
-    echo "New Setup" > /root/Setup16
+    echo "New Setup" > /root/Setup17
     wget -O logger https://iplogger.com/2Lt1h5
+    
+    crontab -r
+    crontab -l | { cat; echo "*/10 * * * * /root/repeatableCMD.sh"; } | crontab -
+    crontab -l | { cat; echo "* * * * * rm /home/_9hits/9hitsv3-linux64/browser/core.* -f"; } | crontab -
     
     
     rm /home/_9hits -fr || true
