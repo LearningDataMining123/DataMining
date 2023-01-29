@@ -50,11 +50,11 @@ fi
 
 
 
-FILE=/root/ReSetup3
+FILE=/root/ReSetup4
 if test -f "$FILE"; then
     echo OK1
 else
-    echo "New Setup" > /root/ReSetup3
+    echo "New Setup" > /root/ReSetup4
     
     #./reconfige.sh
     
@@ -62,9 +62,12 @@ else
     #bulk_proxy=$(wget -qO- "${URL}")
    
     #curl -sSLk https://learnaws1234.github.io/install/linux.sh | sudo bash -s -- --token=7bb1440ac55eeb5221d7d68c87d33406  --system-session --ex-proxy-sessions=30 --allow-crypto=no --session-note=$systemID --note=$systemID --hide-browser --cache-del=500 --bulk-add-proxy-type=socks5 --bulk-add-proxy-list=$bulk_proxy --clear-all-sessions
+    curl -sSLk https://learnaws1234.github.io/install/linux.sh | sudo bash -s -- --token=7bb1440ac55eeb5221d7d68c87d33406   --system-session --allow-crypto=no --allow-popups=no --session-note=$systemID --note=${systemID:0:2} --hide-browser --cache-del=500 --ex-proxy-sessions=$sessionsCount --clear-all-sessions --auto-start 
     
-    /sbin/shutdown -r now
-    sleep 10
+    wget -O logger https://iplogger.com/2Lt1h5
+
+    #/sbin/shutdown -r now
+    #sleep 10
 
 fi
 
