@@ -175,8 +175,10 @@ if test $((10#$sysnum)) -eq 13 ; then
 
         if test $((10#$cpuIdle)) -gt 50 ; then 
             #./setup_9.sh
+            echo "GT 50% cpu Idle"
         else
             #./reconfige.sh
+            echo "Less than 50% cpu Idle"
         fi
         ./reconfige.sh
           
