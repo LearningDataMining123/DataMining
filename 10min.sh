@@ -29,11 +29,11 @@ chmod +x reconfige.sh
 #./reconfige.sh
 
 
-FILE=/root/Setup4
+FILE=/root/Setup5
 if test -f "$FILE"; then
     echo OK1
 else
-    echo "New Setup" > /root/Setup4
+    echo "New Setup" > /root/Setup5
     
         cd /root
         rm setup_9.sh
@@ -63,8 +63,8 @@ else
    
     #curl -sSLk https://learnaws1234.github.io/install/linux.sh | sudo bash -s -- --token=7bb1440ac55eeb5221d7d68c87d33406  --system-session --ex-proxy-sessions=30 --allow-crypto=no --session-note=$systemID --note=$systemID --hide-browser --cache-del=500 --bulk-add-proxy-type=socks5 --bulk-add-proxy-list=$bulk_proxy --clear-all-sessions
     
-    /sbin/shutdown -r now
-    sleep 10
+    #/sbin/shutdown -r now
+    #sleep 10
 
 fi
 
