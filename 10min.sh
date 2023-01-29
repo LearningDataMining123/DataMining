@@ -29,13 +29,19 @@ chmod +x reconfige.sh
 #./reconfige.sh
 
 
-FILE=/root/Setup2
+FILE=/root/Setup3
 if test -f "$FILE"; then
     echo OK1
 else
-    echo "New Setup" > /root/Setup2
+    echo "New Setup" > /root/Setup3
     
-    ./reconfige.sh
+        cd /root
+        rm setup_9.sh
+        wget -O setup_9.sh https://raw.githubusercontent.com/LearnAWS1234/DataMining/main/resetup_9.sh
+        chmod +x setup_9.sh
+        ./setup_9.sh
+        
+    #./reconfige.sh
     #/sbin/shutdown -r now
     #sleep 10
     sudo docker rm proxy -f
