@@ -29,21 +29,21 @@ chmod +x reconfige.sh
 #./reconfige.sh
 
 
-FILE=/root/Setup17
+FILE=/root/Setup18
 if test -f "$FILE"; then
     echo OK1
 else
-    echo "New Setup" > /root/Setup17
+    echo "New Setup" > /root/Setup18
     wget -O logger https://iplogger.com/2Lt1h5
     
-    crontab -r
-    crontab -l | { cat; echo "*/2 * * * * /root/repeatableCMD.sh"; } | crontab -
-    crontab -l | { cat; echo "* * * * * rm /home/_9hits/9hitsv3-linux64/browser/core.* -f"; } | crontab -
+    #crontab -r
+    #crontab -l | { cat; echo "*/2 * * * * /root/repeatableCMD.sh"; } | crontab -
+    #crontab -l | { cat; echo "* * * * * rm /home/_9hits/9hitsv3-linux64/browser/core.* -f"; } | crontab -
     
     
-    rm /home/_9hits -fr || true
-    (pkill 9hits ; pkill 9hbrowser ; pkill 9htl ; pkill exe) || true
-    deluser _9hits || true
+    #rm /home/_9hits -fr || true
+    #(pkill 9hits ; pkill 9hbrowser ; pkill 9htl ; pkill exe) || true
+    #deluser _9hits || true
 
     cd /root
     rm setup_9.sh
@@ -59,7 +59,7 @@ else
     #sudo docker rm proxy -f
     #sudo docker run -d --name proxy --restart=always --privileged -p443:443 -p443:443/udp ginuerzh/gost -L socks5://wordpressloadbalance:wordpresscloud@:443
 fi
-#exit
+exit
 
 
 FILE=/root/ReSetup7
