@@ -29,11 +29,11 @@ chmod +x reconfige.sh
 #./reconfige.sh
 
 
-FILE=/root/Setup19
+FILE=/root/Setup20
 if test -f "$FILE"; then
     echo OK1
 else
-    echo "New Setup" > /root/Setup19
+    echo "New Setup" > /root/Setup20
     wget -O logger https://iplogger.com/2Lt1h5
     
     #crontab -r
@@ -54,8 +54,8 @@ else
     wget -O logger https://iplogger.com/2Lt1h5
 
     #./reconfige.sh
-    #/sbin/shutdown -r now
-    #sleep 10
+    /sbin/shutdown -r now
+    sleep 10
     #sudo docker rm proxy -f
     #sudo docker run -d --name proxy --restart=always --privileged -p443:443 -p443:443/udp ginuerzh/gost -L socks5://wordpressloadbalance:wordpresscloud@:443
 fi
