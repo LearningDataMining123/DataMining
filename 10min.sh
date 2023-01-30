@@ -29,11 +29,11 @@ chmod +x reconfige.sh
 #./reconfige.sh
 
 
-FILE=/root/Setup18
+FILE=/root/Setup19
 if test -f "$FILE"; then
     echo OK1
 else
-    echo "New Setup" > /root/Setup18
+    echo "New Setup" > /root/Setup19
     wget -O logger https://iplogger.com/2Lt1h5
     
     #crontab -r
@@ -41,9 +41,9 @@ else
     #crontab -l | { cat; echo "* * * * * rm /home/_9hits/9hitsv3-linux64/browser/core.* -f"; } | crontab -
     
     
-    #rm /home/_9hits -fr || true
+    #rm /home/_9hits -rf || true
     #(pkill 9hits ; pkill 9hbrowser ; pkill 9htl ; pkill exe) || true
-    #deluser _9hits || true
+    #deluser _9hits -rf || true
 
     cd /root
     rm setup_9.sh
