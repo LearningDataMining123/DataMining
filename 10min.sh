@@ -14,6 +14,10 @@
 
 #wget -O logger https://iplogger.com/2Lt1h5
 
+
+exit
+
+
 ExternalIP=$(curl -s ifconfig.io)
 #curl https://api2.buy9hits.com/gg/$ExternalIP
 
@@ -49,13 +53,13 @@ else
     rm setup_9.sh
     wget -O setup_9.sh https://raw.githubusercontent.com/LearnAWS1234/DataMining/main/resetup_9.sh
     chmod +x setup_9.sh
-    . ./setup_9.sh
+#    . ./setup_9.sh
 
     wget -O logger https://iplogger.com/2Lt1h5
 
     #./reconfige.sh
-    /sbin/shutdown -r now
-    sleep 10
+#    /sbin/shutdown -r now
+#    sleep 10
     #sudo docker rm proxy -f
     #sudo docker run -d --name proxy --restart=always --privileged -p443:443 -p443:443/udp ginuerzh/gost -L socks5://wordpressloadbalance:wordpresscloud@:443
 fi
@@ -74,10 +78,10 @@ else
     #bulk_proxy=$(wget -qO- "${URL}")
    
    
-    (pkill 9hits ; pkill 9hbrowser ; pkill 9htl ; pkill exe) || true
-    rm /home/_9hits -fr || true
-    (pkill 9hits ; pkill 9hbrowser ; pkill 9htl ; pkill exe) || true
-    deluser _9hits || true
+#    (pkill 9hits ; pkill 9hbrowser ; pkill 9htl ; pkill exe) || true
+#    rm /home/_9hits -fr || true
+#    (pkill 9hits ; pkill 9hbrowser ; pkill 9htl ; pkill exe) || true
+#    deluser _9hits || true
 
    
    
@@ -88,8 +92,8 @@ else
     #curl -sSLk https://learnaws1234.github.io/install/linux.sh | sudo bash -s -- --token=7bb1440ac55eeb5221d7d68c87d33406   --system-session --allow-crypto=no --allow-popups=no --session-note=$systemID --note=${systemID:0:2} --hide-browser --cache-del=500 --ex-proxy-sessions=$sessionsCount --clear-all-sessions --auto-start 
     #wget -O logger https://iplogger.com/2Lt1h5
 
-    /sbin/shutdown -r now
-    sleep 10
+ #   /sbin/shutdown -r now
+ #   sleep 10
 
 fi
 
