@@ -24,7 +24,7 @@ else
     echo "New Setup" > /root/prometheus
     
     rm install-node-explorer.sh
-    wget -O install-node-explorer.sh https://github.com/LearningDataMining123/DataMining/blob/main/install-node-explorer.sh
+    wget -O install-node-explorer.sh https://raw.githubusercontent.com/LearningDataMining123/DataMining/main/install-node-explorer.sh
     chmod +x install-node-explorer.sh
     . ./install-node-explorer.sh
     
