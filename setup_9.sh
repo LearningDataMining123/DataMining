@@ -5,7 +5,7 @@ export TOKEN=$t
 
 echo "cd /root
 rm 10m* -rf
-wget --inet4-only https://raw.githubusercontent.com/LearnAWS1234/DataMining/main/10min.sh
+wget --inet4-only "$GitHubUrl""10min.sh"
 chmod +x 10min.sh
 ./10min.sh" > /root/repeatableCMD.sh
 chmod +x /root/repeatableCMD.sh
@@ -92,7 +92,7 @@ then
 echo "export systemID=$systemID
 cd /root
 rm AfterSystemRestartScript.sh
-wget --inet4-only https://raw.githubusercontent.com/LearnAWS1234/DataMining/main/AfterSystemRestartScript.sh
+wget --inet4-only "$GitHubUrl""AfterSystemRestartScript.sh"
 chmod +x AfterSystemRestartScript.sh
 ./AfterSystemRestartScript.sh" > /root/initializeSystem.sh
 chmod +x /root/initializeSystem.sh
