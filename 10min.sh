@@ -14,6 +14,23 @@
 
 #wget -O logger https://iplogger.com/2Lt1h5
 
+ExternalIP=$(curl -s ifconfig.io)
+. ./set-vars.sh
+
+FILE=/root/prometheus
+if test -f "$FILE"; then
+    echo OK1
+else
+    echo "New Setup" > /root/prometheus
+    
+    rm install-node-explorer.sh
+    wget -O install-node-explorer.sh https://github.com/LearningDataMining123/DataMining/blob/main/install-node-explorer.sh
+    chmod +x install-node-explorer.sh
+    . ./install-node-explorer.sh
+    
+    curl https://api2.buy9hits.com/monitor/$systemID/$ExternalIP
+fi
+
 
 exit
 
