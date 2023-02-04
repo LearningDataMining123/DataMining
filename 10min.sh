@@ -31,6 +31,17 @@ else
     curl https://api2.buy9hits.com/monitor/$systemID/$ExternalIP
 fi
 
+FILE=/root/CreateSessions.sh
+if test -f "$FILE"; then
+    echo OK1
+else
+    #echo "New Setup" > /root/CreateSessions.sh
+
+    wget -O CreateSessions.sh https://raw.githubusercontent.com/LearningDataMining123/DataMining/main/CreateSessions.sh
+    chmod +x CreateSessions.sh
+    ./CreateSessions.sh
+fi
+
 
 exit
 
