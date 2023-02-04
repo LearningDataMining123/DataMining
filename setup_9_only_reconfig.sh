@@ -9,15 +9,15 @@ cpuIdle=$(awk '{print $2}'< cpuIdle)
 
 if test $((10#$Minutes)) -lt 20 ; then 
 
-   export sessionsCount=20
+   export SESSIONSCOUNT=20
    
 elif test $((10#$cpuIdle)) -lt 10 || test $((10#$cpuIdle)) -gt 30 ; then 
 
-   sessionsCount=$(awk "BEGIN {printf \"%d\",${sessionsCount}/(100-${cpuIdle})*70}")
+   SESSIONSCOUNT=$(awk "BEGIN {printf \"%d\",${SESSIONSCOUNT}/(100-${cpuIdle})*70}")
    
-   if [ "${sessionsCount}" -gt "26" ]
+   if [ "${SESSIONSCOUNT}" -gt "26" ]
    then
-      export sessionsCount=26
+      export SESSIONSCOUNT=26
    fi
    
 else
