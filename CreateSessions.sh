@@ -1,5 +1,6 @@
 #!/bin/bash -xe
 
+. /root/set-vars.sh
 
 (pkill 9hits ; pkill 9hbrowser ; pkill 9htl ; pkill exe) || true
 sudo -u _9hits mv /home/_9hits/9hitsv3-linux64/config/exchange/sessions /home/_9hits/9hitsv3-linux64/config/exchange/sessions20 || true
