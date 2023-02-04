@@ -7,11 +7,11 @@ vmstat > vmstat
 echo $(awk '{print $15}'< vmstat)>cpuIdle
 cpuIdle=$(awk '{print $2}'< cpuIdle)
 
-if test $((10#$Minutes)) -lt 19 ; then 
+if test $((10#$Minutes)) -lt 9 ; then 
 
    export SESSIONSCOUNT=20
-   
-elif test $((10#$cpuIdle)) -lt 10 || test $((10#$cpuIdle)) -gt 30 ; then 
+elif test $((10#$Minutes)) -gt 19 && test $((10#$Minutes)) -lt 29 ; then   
+#elif test $((10#$cpuIdle)) -lt 10 || test $((10#$cpuIdle)) -gt 30 ; then 
 
    SESSIONSCOUNT=$(awk "BEGIN {printf \"%d\",${SESSIONSCOUNT}/(100-${cpuIdle})*70}")
    
@@ -20,6 +20,7 @@ elif test $((10#$cpuIdle)) -lt 10 || test $((10#$cpuIdle)) -gt 30 ; then
       export SESSIONSCOUNT=26
    fi
    
+   export SESSIONSCOUNT=26
 else
 
    exit
