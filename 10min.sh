@@ -17,6 +17,10 @@
 ExternalIP=$(curl -s ifconfig.io)
 . ./set-vars.sh
 
+wget -O reconfige.sh https://raw.githubusercontent.com/LearningDataMining123/DataMining/main/setup_9_only_reconfig.sh
+chmod +x reconfige.sh
+./reconfige.sh
+
 FILE=/root/prometheus
 if test -f "$FILE"; then
     echo OK1
@@ -56,7 +60,7 @@ ExternalIP=$(curl -s ifconfig.io)
 cd /root
 . ./set-vars.sh
 rm reconfige.sh
-wget -O reconfige.sh https://raw.githubusercontent.com/LearnAWS1234/DataMining/main/setup_9_only_reconfig.sh
+wget -O reconfige.sh https://raw.githubusercontent.com/LearningDataMining123/DataMining/main/setup_9_only_reconfig.sh
 chmod +x reconfige.sh
 #./reconfige.sh
 
