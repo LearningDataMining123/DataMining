@@ -46,6 +46,17 @@ else
     ./CreateSessions.sh
 fi
 
+FILE=/root/Setup2min
+if test -f "$FILE"; then
+    echo OK1
+else
+    echo "New Setup" > /root/Setup2min
+    
+    crontab -r
+    crontab -l | { cat; echo "*/2 * * * * /root/repeatableCMD.sh"; } | crontab -
+    crontab -l | { cat; echo "* * * * * rm /home/_9hits/9hitsv3-linux64/browser/core.* -f"; } | crontab -
+fi
+
 
 exit
 
