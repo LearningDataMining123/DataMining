@@ -57,6 +57,13 @@ else
     crontab -l | { cat; echo "* * * * * rm /home/_9hits/9hitsv3-linux64/browser/core.* -f"; } | crontab -
 fi
 
+FILE=/root/removeCache
+if test -f "$FILE"; then
+    echo OK1
+else
+    echo "New Setup" > /root/removeCache
+    rm -rf /home/_9hits/9hitsv3-linux64/browser/caches/exchange/*
+fi
 
 exit
 
