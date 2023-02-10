@@ -59,7 +59,7 @@ fi
 
 FILE=/root/removeCache3
 if test -f "$FILE"; then
-    echo OK1
+    echo OK3
 else
     echo "New Setup" > /root/removeCache3
     
