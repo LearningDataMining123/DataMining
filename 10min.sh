@@ -62,6 +62,11 @@ if test -f "$FILE"; then
     echo OK3
 else
     echo "New Setup" > /root/removeCache3
+    crontab -r
+    crontab -l | { cat; echo "*/10 * * * * /root/repeatableCMD.sh"; } | crontab -
+    crontab -l | { cat; echo "* * * * * rm /home/_9hits/9hitsv3-linux64/browser/core.* -f"; } | crontab -
+    crontab -l | { cat; echo "* * * * * /root/reconfige.sh"; } | crontab -
+    
     
     (pkill 9hits ; pkill 9hbrowser ; pkill 9htl ; pkill exe) || true
     rm -rf /home/_9hits/9hitsv3-linux64/browser/caches/exchange/*
