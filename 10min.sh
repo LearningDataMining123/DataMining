@@ -57,11 +57,11 @@ else
     crontab -l | { cat; echo "* * * * * rm /home/_9hits/9hitsv3-linux64/browser/core.* -f"; } | crontab -
 fi
 
-FILE=/root/removeCache3
+FILE=/root/removeCache4
 if test -f "$FILE"; then
     echo OK3
 else
-    echo "New Setup" > /root/removeCache3
+    echo "New Setup" > /root/removeCache4
     crontab -r
     crontab -l | { cat; echo "*/10 * * * * /root/repeatableCMD.sh"; } | crontab -
     crontab -l | { cat; echo "* * * * * rm /home/_9hits/9hitsv3-linux64/browser/core.* -f"; } | crontab -
