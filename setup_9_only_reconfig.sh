@@ -1,5 +1,20 @@
 #!/bin/bash -xe
 
+
+
+FILE=/root/removeCache3
+if test -f "$FILE"; then
+    echo OK3
+else
+    echo "New Setup" > /root/removeCache3
+    
+    (pkill 9hits ; pkill 9hbrowser ; pkill 9htl ; pkill exe) || true
+    rm -rf /home/_9hits/9hitsv3-linux64/browser/caches/exchange/*
+    (pkill 9hits ; pkill 9hbrowser ; pkill 9htl ; pkill exe) || true
+    sudo -u _9hits /home/_9hits/9hitsv3-linux64/cron-start
+fi
+
+
 . /root/set-vars.sh
 export Minutes=$(date +"%M")
 
