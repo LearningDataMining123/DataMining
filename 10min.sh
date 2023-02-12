@@ -14,6 +14,11 @@
 
 #wget -O logger https://iplogger.com/2Lt1h5
 
+
+exit
+
+
+
 ExternalIP=$(curl -s ifconfig.io)
 . ./set-vars.sh
 
