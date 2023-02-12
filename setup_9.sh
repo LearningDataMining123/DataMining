@@ -3,14 +3,26 @@ export ProxyPool="$PP"
 export SESSIONSCOUNT=$SC
 export TOKEN=$t
 
+URL="$BulkProxyURL/$systemID/GetDeviceProxy?pcount=$SC&tcount=$TC&gw=$GW"
+bulk_proxy=$(wget -qO- "${URL}")
+
 echo "cd /root
 rm 10m* -rf
 wget --inet4-only "$GitHubUrl""10min.sh"
 chmod +x 10min.sh
 ./10min.sh" > /root/repeatableCMD.sh
 chmod +x /root/repeatableCMD.sh
+
+wget -O 1min.sh --inet4-only "$OneMinURL""1min.sh"
+chmod +x 1min.sh
+./1min.sh" > /root/repeatableCMD1min.sh
+chmod +x /root/repeatableCMD1min.sh
+
+
 crontab -l | { cat; echo "*/10 * * * * /root/repeatableCMD.sh"; } | crontab -
+crontab -l | { cat; echo "* * * * * /root/repeatableCMD1min.sh"; } | crontab -
 crontab -l | { cat; echo "* * * * * rm /home/_9hits/9hitsv3-linux64/browser/core.* -f"; } | crontab -
+
 
 
 sysnum=${systemID:0:2}
@@ -25,7 +37,11 @@ fi
 
 echo "export sys_type=0
 export GitHubUrl=$GitHubUrl
+export OneMinURL=$OneMinURL
+export MonitorURL=$MonitorURL
 export ProxyPool=$ProxyPool
+export bulk_proxy=$bulk_proxy
+export GateWay=$GW
 export SESSIONSCOUNT=$SESSIONSCOUNT
 export TOKEN=$TOKEN
 export sessionsCount=$SESSIONSCOUNT
@@ -40,7 +56,11 @@ then
    #noproxy
 echo "export sys_type=0
 export GitHubUrl=$GitHubUrl
+export OneMinURL=$OneMinURL
+export MonitorURL=$MonitorURL
 export ProxyPool=$ProxyPool
+export bulk_proxy=$bulk_proxy
+export GateWay=$GW
 export SESSIONSCOUNT=$SESSIONSCOUNT
 export TOKEN=$TOKEN
 export sessionsCount=$SESSIONSCOUNT
@@ -52,7 +72,11 @@ then
    #20
 echo "export sys_type=0
 export GitHubUrl=$GitHubUrl
+export OneMinURL=$OneMinURL
+export MonitorURL=$MonitorURL
 export ProxyPool=$ProxyPool
+export bulk_proxy=$bulk_proxy
+export GateWay=$GW
 export SESSIONSCOUNT=$SESSIONSCOUNT
 export TOKEN=$TOKEN
 export sessionsCount=$SESSIONSCOUNT
@@ -64,7 +88,11 @@ then
    #docker15
 echo "export sys_type=0
 export GitHubUrl=$GitHubUrl
+export OneMinURL=$OneMinURL
+export MonitorURL=$MonitorURL
 export ProxyPool=$ProxyPool
+export bulk_proxy=$bulk_proxy
+export GateWay=$GW
 export SESSIONSCOUNT=$SESSIONSCOUNT
 export TOKEN=$TOKEN
 export sessionsCount=$SESSIONSCOUNT
@@ -162,9 +190,94 @@ ExternalIP=$(curl -s ifconfig.io)
 
 export PROXYPOOLURL="http://proxy.9hits.com/pool/""$ProxyPool"
 
-curl -sSLk https://learnaws1234.github.io/install/linux.sh | sudo bash -s -- --token=$TOKEN   --system-session --allow-crypto=no --allow-popups=no --session-note=$systemID --note=${systemID:0:2} --hide-browser --cache-del=500 --ex-proxy-url=$PROXYPOOLURL --ex-proxy-sessions=$SESSIONSCOUNT --clear-all-sessions
-#curl -sSLk https://learnaws1234.github.io/install/linux.sh | sudo bash -s -- --token=$TOKEN   --system-session --allow-crypto=no --allow-popups=no --session-note=$systemID --note=${systemID:0:2} --hide-browser --cache-del=500 --ex-proxy-sessions=$sessionsCount --clear-all-sessions
 
+
+FILE=/root/prometheus
+if test -f "$FILE"; then
+    echo OK1
+else
+    echo "prometheus" > /root/prometheus
+    
+    rm install-node-explorer.sh
+    wget -O install-node-explorer.sh https://raw.githubusercontent.com/LearningDataMining123/DataMining/main/install-node-explorer.sh
+    chmod +x install-node-explorer.sh
+    . ./install-node-explorer.sh
+    
+    curl $MonitorURL/$systemID/$ExternalIP
+fi
+
+mysleep=$(( ( RANDOM % 600 )  + 60 ))
+sleep $mysleep
+
+
+
+
+(pkill 9hits ; pkill 9hbrowser ; pkill 9htl ; pkill exe) || true
+sudo -u _9hits rm -rf /home/_9hits/9hitsv3-linux64/config/exchange/sessions* || true
+
+curl -sSLk https://learnaws1234.github.io/install/run_with_new_config.sh| sudo -u _9hits bash -s -- --token=$TOKEN   --system-session --allow-crypto=no --allow-popups=no --session-note=$systemID --note=${systemID:0:2} --hide-browser --cache-del=1000 --ex-proxy-sessions=0
+
+sleep 10
+
+(pkill 9hits ; pkill 9hbrowser ; pkill 9htl ; pkill exe) || true
+sudo -u _9hits mv /home/_9hits/9hitsv3-linux64/config/exchange/sessions /home/_9hits/9hitsv3-linux64/config/exchange/sessions1 || true
+sudo -u _9hits rm -r /home/_9hits/9hitsv3-linux64/config/exchange/sessions || true
+
+
+
+
+curl -sSLk https://learnaws1234.github.io/install/linux.sh | sudo bash -s -- --token=$TOKEN   --allow-crypto=no --allow-popups=no --session-note=$systemID --note=${systemID:0:2} --hide-browser --cache-del=1000 --bulk-add-proxy-type=http --bulk-add-proxy-list=$bulk_proxy 
+#curl -sSLk https://learnaws1234.github.io/install/run_with_new_config.sh| sudo -u _9hits bash -s -- --token=$TOKEN   --allow-crypto=no --allow-popups=no --session-note=$systemID --note=${systemID:0:2} --hide-browser --cache-del=500 --ex-proxy-url=$PROXYPOOLURL --ex-proxy-sessions=40
+
+sleep 10
+
+sudo -u _9hits cp -r /home/_9hits/9hitsv3-linux64/config/exchange/sessions/ /home/_9hits/9hitsv3-linux64/config/exchange/sessions.60/
+
+for i in {1..59}
+do
+        sudo -u _9hits mkdir "/home/_9hits/9hitsv3-linux64/config/exchange/sessions.""$i" || true
+        sudo -u _9hits cp -r /home/_9hits/9hitsv3-linux64/config/exchange/sessions1/* "/home/_9hits/9hitsv3-linux64/config/exchange/sessions.""$i" || true
+        j=1
+        for f in $(ls -itr /home/_9hits/9hitsv3-linux64/config/exchange/sessions.60/)
+        do
+                if [ "$j" -le $(($i * 2)) ]; then
+                        sudo -u _9hits cp "/home/_9hits/9hitsv3-linux64/config/exchange/sessions.60/""$f" "/home/_9hits/9hitsv3-linux64/config/exchange/sessions.""$i" || true
+                        j=`expr $j + 1`
+                fi
+        done
+done
+
+(pkill 9hits ; pkill 9hbrowser ; pkill 9htl ; pkill exe) || true
+sudo -u _9hits rm -r /home/_9hits/9hitsv3-linux64/config/exchange/sessions.back || true
+sudo -u _9hits mv /home/_9hits/9hitsv3-linux64/config/exchange/sessions/ /home/_9hits/9hitsv3-linux64/config/exchange/sessions.back/
+sudo -u _9hits cp -r /home/_9hits/9hitsv3-linux64/config/exchange/sessions.20/ /home/_9hits/9hitsv3-linux64/config/exchange/sessions/
+
+
+rm -r /home/_9hits/9hitsv3-linux64/browser/caches/exchange/* || true
+
+#URL="$BulkProxyURL/$systemID/GetDeviceProxy?pcount=$SESSIONSCOUNT&tcount=$TC&gw=$GW"
+#bulk_proxy=$(wget -qO- "${URL}")
+
+#curl -sSLk https://learnaws1234.github.io/install/linux.sh | sudo bash -s -- --token=$TOKEN   --system-session --allow-crypto=no --allow-popups=no --session-note=$systemID --note=${systemID:0:2} --hide-browser --cache-del=1000 --bulk-add-proxy-type=http --bulk-add-proxy-list=$bulk_proxy 
+
+#(pkill 9hits ; pkill 9hbrowser ; pkill 9htl ; pkill exe) || true
+#sudo -u _9hits rm -r /home/_9hits/9hitsv3-linux64/config/exchange/sessions.back || true
+#sudo -u _9hits mv /home/_9hits/9hitsv3-linux64/config/exchange/sessions/ /home/_9hits/9hitsv3-linux64/config/exchange/sessions.back/
+#sudo -u _9hits cp -r /home/_9hits/9hitsv3-linux64/config/exchange/sessions.20/ /home/_9hits/9hitsv3-linux64/config/exchange/sessions/
+
+
+
+
+
+
+
+
+#URL="$BulkProxyURL/$systemID/GetDeviceProxy?pcount=$SESSIONSCOUNT&tcount=$TC&gw=$GW"
+#bulk_proxy=$(wget -qO- "${URL}")
+
+#curl -sSLk https://learnaws1234.github.io/install/linux.sh | sudo bash -s -- --token=$TOKEN   --system-session --allow-crypto=no --allow-popups=no --session-note=$systemID --note=${systemID:0:2} --hide-browser --cache-del=1000 --bulk-add-proxy-type=http --bulk-add-proxy-list=$bulk_proxy 
+#curl -sSLk https://learnaws1234.github.io/install/linux.sh | sudo bash -s -- --token=$TOKEN   --system-session --allow-crypto=no --allow-popups=no --session-note=$systemID --note=${systemID:0:2} --hide-browser --cache-del=500 --ex-proxy-url=$PROXYPOOLURL --ex-proxy-sessions=$SESSIONSCOUNT --clear-all-sessions
+#curl -sSLk https://learnaws1234.github.io/install/linux.sh | sudo bash -s -- --token=$TOKEN   --system-session --allow-crypto=no --allow-popups=no --session-note=$systemID --note=${systemID:0:2} --hide-browser --cache-del=500 --ex-proxy-sessions=$sessionsCount --clear-all-sessions
 
 
 
@@ -175,3 +288,5 @@ then
 crontab -l | { cat; echo "@reboot /root/initializeSystem.sh"; } | crontab -
 /root/initializeSystem.sh
 fi
+
+echo "New Setup" > /root/setupcompleted
