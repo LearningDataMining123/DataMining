@@ -25,9 +25,10 @@ sysctl -w net.ipv4.ip_forward=1
 sudo apt-get update
 
 
+echo iptables-persistent ipset-persistent/autosave boolean true | sudo debconf-set-selections
 echo iptables-persistent iptables-persistent/autosave_v4 boolean true | sudo debconf-set-selections
 echo iptables-persistent iptables-persistent/autosave_v6 boolean true | sudo debconf-set-selections
-sudo apt-get -y install iptables-persistent
+sudo apt-get -y install netfilter-persistent ipset-persistent iptables-persistent
 
 sudo iptables -t nat -F
 sudo iptables -t mangle -F
@@ -3038,6 +3039,14 @@ sudo iptables -t nat -A POSTROUTING -o ens5 -p tcp --dport 3128 -d 104.168.126.5
 sudo iptables -t nat -A POSTROUTING -o ens5 -p tcp --dport 3128 -d 104.168.66.93 -j SNAT --to-source $ExternalIP
 sudo iptables -t nat -A POSTROUTING -o ens5 -p tcp --dport 3128 -d 38.15.154.82 -j SNAT --to-source $ExternalIP
 sudo iptables -t nat -A POSTROUTING -o ens5 -p tcp --dport 3128 -d 107.172.185.171 -j SNAT --to-source $ExternalIP
+
+sed -i 's/#net.ipv4.ip_forward=1/net.ipv4.ip_forward=1/' /etc/sysctl.conf
+sysctl -p
+
+
+sudo netfilter-persistent save
+#systemctl enable netfilter-persistent.service
+sudo systemctl enable netfilter-persistent
 
 
 
