@@ -222,7 +222,7 @@ sleep 10
 
 (pkill 9hits ; pkill 9hbrowser ; pkill 9htl ; pkill exe) || true
 sudo -u _9hits mv /home/_9hits/9hitsv3-linux64/config/exchange/sessions /home/_9hits/9hitsv3-linux64/config/exchange/sessions1 || true
-sudo -u _9hits rm -r /home/_9hits/9hitsv3-linux64/config/exchange/sessions || true
+#sudo -u _9hits rm -r /home/_9hits/9hitsv3-linux64/config/exchange/sessions || true
 
 
 
