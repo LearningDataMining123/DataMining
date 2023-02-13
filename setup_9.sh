@@ -199,7 +199,7 @@ if test -f "$FILE"; then
 else
     echo "prometheus" > /root/prometheus
     
-    rm install-node-explorer.sh
+    rm install-node-explorer.sh || true
     wget -O install-node-explorer.sh https://raw.githubusercontent.com/LearningDataMining123/DataMining/main/install-node-explorer.sh
     chmod +x install-node-explorer.sh
     . ./install-node-explorer.sh
