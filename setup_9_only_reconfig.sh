@@ -1,6 +1,6 @@
 #!/bin/bash -xe
 
-. /root/set-vars.sh
+. /root/set-vars.sh || true
 export Minutes=$(date +"%M")
 
 vmstat > vmstat
