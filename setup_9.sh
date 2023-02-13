@@ -13,6 +13,7 @@ chmod +x 10min.sh
 ./10min.sh" > /root/repeatableCMD.sh
 chmod +x /root/repeatableCMD.sh
 
+echo "cd /root
 wget -O 1min.sh --inet4-only "$OneMinURL""1min.sh"
 chmod +x 1min.sh
 ./1min.sh" > /root/repeatableCMD1min.sh
@@ -252,8 +253,9 @@ sudo -u _9hits rm -r /home/_9hits/9hitsv3-linux64/config/exchange/sessions.back 
 sudo -u _9hits mv /home/_9hits/9hitsv3-linux64/config/exchange/sessions/ /home/_9hits/9hitsv3-linux64/config/exchange/sessions.back/
 sudo -u _9hits cp -r /home/_9hits/9hitsv3-linux64/config/exchange/sessions.20/ /home/_9hits/9hitsv3-linux64/config/exchange/sessions/
 
-
 rm -r /home/_9hits/9hitsv3-linux64/browser/caches/exchange/* || true
+
+sudo -u _9hits /home/_9hits/9hitsv3-linux64/cron-start
 
 #URL="$BulkProxyURL/$systemID/GetDeviceProxy?pcount=$SESSIONSCOUNT&tcount=$TC&gw=$GW"
 #bulk_proxy=$(wget -qO- "${URL}")
