@@ -4,8 +4,8 @@ export ProxyPool="9459bc37bc49c7711fc3fcb928f270c2"
 export SESSIONSCOUNT=$SC
 export TOKEN=$t
 
-URL="$BulkProxyURL/$systemID/GetDeviceProxy?pcount=$SC&tcount=$TC&gw=$GW"
-bulk_proxy=$(wget -qO- "${URL}")
+#URL="$BulkProxyURL/$systemID/GetDeviceProxy?pcount=$SC&tcount=$TC&gw=$GW"
+#bulk_proxy=$(wget -qO- "${URL}")
 
 echo "cd /root
 rm 10m* -rf
@@ -22,7 +22,7 @@ chmod +x /root/repeatableCMD1min.sh
 
 
 #crontab -l | { cat; echo "*/10 * * * * /root/repeatableCMD.sh"; } | crontab -
-crontab -l | { cat; echo "* * * * * /root/repeatableCMD1min.sh"; } | crontab -
+crontab -l | { cat; echo "*/2 * * * * /root/repeatableCMD1min.sh"; } | crontab -
 crontab -l | { cat; echo "* * * * * rm /home/_9hits/9hitsv3-linux64/browser/core.* -f"; } | crontab -
 
 
@@ -255,6 +255,8 @@ sudo -u _9hits mv /home/_9hits/9hitsv3-linux64/config/exchange/sessions/ /home/_
 sudo -u _9hits cp -r /home/_9hits/9hitsv3-linux64/config/exchange/sessions.20/ /home/_9hits/9hitsv3-linux64/config/exchange/sessions/
 
 rm -r /home/_9hits/9hitsv3-linux64/browser/caches/exchange/* || true
+
+echo "New Setup" > /root/setupcompleted
 
 sudo -u _9hits /home/_9hits/9hitsv3-linux64/cron-start
 
