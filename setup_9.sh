@@ -187,7 +187,7 @@ fi
 
 
 
-ExternalIP=$(curl -s ifconfig.io)
+ExternalIP=$(curl -4 -s ifconfig.io)
 #curl https://api2.buy9hits.com/gg/$ExternalIP
 
 export PROXYPOOLURL="http://proxy.9hits.com/pool/""$ProxyPool"
